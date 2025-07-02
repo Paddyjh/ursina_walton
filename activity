@@ -1,0 +1,33 @@
+# First go to belnder tutorial and create maze
+
+from ursina import *
+from ursina.prefabs.first_person_controller import *
+
+
+
+def update():
+    if player.y < 0:
+        player.position = (16, 0, -18)
+
+
+app = Ursina()
+
+# use the maze model we just made
+# use whatever texture you want 
+# we set the scael to 20 to make it big enough to fit the user
+# we then create the collider logic by passing in mesh (this automatically handles colision logic)
+
+
+maze = Entity(model='maze', 
+              texture='brick', 
+              scale = 20,
+              collider= 'mesh')
+
+player = FirstPersonController(position = (16, 0, -18))
+
+# if we run this we will just fall t
+
+app.run()
+
+
+# a challenge for the students is to try to make a levels feature where when the user reaches an item in the maze it goes to a new level
